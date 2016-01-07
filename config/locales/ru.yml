@@ -1,21 +1,32 @@
 ru:
+######  ACTIVE RECORD ######################
   activerecord:
    attributes:
-     article:
-       title: "Название"
-       body: "Текст"
+      article:
+        title: "Название"
+        body: "Текст"
+      user:
+        name: "Имя"
+        email: "Почта"
+        password: "Ваш пароль"
+        password_confirmation: "Подтверждение пароля"
   forms:
     messages:
       success: "Операция была успешно выполнена!"
     buttons:
-     edit: "Редактировать"
-     submit: "Отправить"
+      edit: "Редактировать"
+      submit: "Отправить"
+      sign_up: "Создать аккаунт"
+      login: "Войти"
   menu:
     new_article: "Добавить статью"
     languages:
       lang: "Язык"
       ru: "Русский"
       en: "Английский"
+    sign_up: "Зарегистрироваться"
+    login: "Войти"
+    sign_out: "Выйти"
   articles:
     index:
       count:
@@ -29,3 +40,12 @@ ru:
       title: "Редактировать статью"
     new:
       title: "Добавить статью"
+############Users##############
+  users:
+    new:
+      title: "Регистрация"
+    show:
+      title: "Профиль"
+  sessions:
+    new:
+      title: "Войти"

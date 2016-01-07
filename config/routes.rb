@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   resources :articles, only: [:index, :new, :create, :edit, :update]
   root to: 'articles#index'
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
+  
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup', to: 'users#new', via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

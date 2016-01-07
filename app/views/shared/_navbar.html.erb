@@ -23,6 +23,12 @@
           </li>
         </ul>
       </li>
+      <% if signed_in? %>
+        <li><%= link_to t('menu.sign_out'), signout_path, method: "delete" %></li>
+      <% else %>
+        <li><a href= "/signup"><span class="glyphicon glyphicon-user"></span> <%= t('menu.sign_up') %></a></li>
+        <li><a href= "/signin"><span class="glyphicon glyphicon-log-in"></span> <%= t('menu.login') %></a></li>
+      <% end %>
     </ul>
     </div>
   </div>
