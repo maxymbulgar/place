@@ -1,0 +1,9 @@
+<%= form_for [ @article, @comment ] do |f| %>
+<div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: 3, class: 'form-control', required: true %>
+</div>
+  <p>
+    <%= f.submit t('forms.buttons.submit'), class: 'btn btn-primary' %>
+  </p>
+<% end %>

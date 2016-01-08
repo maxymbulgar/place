@@ -10,12 +10,15 @@ en:
         email: "Email"
         password: "Your password"
         password_confirmation: "Password confirmation"
+      comment:
+        body: "Comment"
   forms:
     messages:
       success: "Operation succeeded!"
     buttons:
       edit: "Edit"
       submit: "Submit"
+      show: "Details"
       sign_up: "Create account"
       login: "Login"
   menu:
@@ -37,6 +40,10 @@ en:
       title: "Add article"
     new:
       title: "New article"
+    show:
+      comments: "Comments"
+      comment_by: "Comment by"
+      post_comment: "Post a Comment"
 ############Users##############
   users:
     new:

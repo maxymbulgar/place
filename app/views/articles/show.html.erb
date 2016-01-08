@@ -1,0 +1,10 @@
+<% content_for(:page_header) {@article.title} %>
+<p class="lead"><%= @article.body %></p>
+<br>
+<h3><%= t('.comments') %> (<%= @article.comments.size %>)</h3>
+<hr>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+<br>
+<h3><%= t('.post_comment') %></h3>
+<hr>
+<p><%= render partial: 'comments/form' %></p>

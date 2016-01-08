@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   get 'users/new'
 
-  resources :articles, only: [:index, :new, :create, :edit, :update]
+  resources :articles, only: [:index, :new, :create, :edit, :update, :show]
   root to: 'articles#index'
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
+  resources :articles do
+    resources :comments
+  end
+
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

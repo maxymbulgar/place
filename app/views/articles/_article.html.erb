@@ -4,5 +4,6 @@
 
 <p><%= article.body %></p>
 
-<p><%= link_to t('forms.buttons.edit'), edit_article_path(article), class: 'btn btn-default' %></p>
+<p><%= link_to t('forms.buttons.edit'), edit_article_path(article), class: 'btn btn-default' %>
+<%= link_to t('forms.buttons.show'), article_path(article), class: 'btn btn-default' %></p>
 <hr/>

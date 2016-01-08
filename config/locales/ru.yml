@@ -10,12 +10,15 @@ ru:
         email: "Почта"
         password: "Ваш пароль"
         password_confirmation: "Подтверждение пароля"
+      comment:
+        body: "Коментарий"
   forms:
     messages:
       success: "Операция была успешно выполнена!"
     buttons:
       edit: "Редактировать"
       submit: "Отправить"
+      show: "Читать больше"
       sign_up: "Создать аккаунт"
       login: "Войти"
   menu:
@@ -40,6 +43,10 @@ ru:
       title: "Редактировать статью"
     new:
       title: "Добавить статью"
+    show:
+      comments: "Коментарии"
+      comment_by: "Коментарий от"
+      post_comment: "Отправить коментарий"
 ############Users##############
   users:
     new:
