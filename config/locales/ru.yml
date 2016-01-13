@@ -12,17 +12,31 @@ ru:
         password_confirmation: "Подтверждение пароля"
       comment:
         body: "Коментарий"
+      poll:
+        topic: "Тема"
+      vote_option:
+        title: "Ответ"
+#############forms##################
   forms:
     messages:
       success: "Операция была успешно выполнена!"
+      error: "Случилась ошибка..."
+      error_email: "Неправильная комбинация имени/пароля"
     buttons:
       edit: "Редактировать"
       submit: "Отправить"
       show: "Читать больше"
       sign_up: "Создать аккаунт"
       login: "Войти"
+      create: "Создать"
+      delete: "Удалить"
+    links:
+      add_option: "добавить вариант"
+      remove_option: "убрать вариант"
+##############menu#################
   menu:
     new_article: "Добавить статью"
+    new_poll: "Добавить голосование"
     languages:
       lang: "Язык"
       ru: "Русский"
@@ -30,6 +44,10 @@ ru:
     sign_up: "Зарегистрироваться"
     login: "Войти"
     sign_out: "Выйти"
+###############errors############
+  errors:
+    title: "Вы припустились ошибок:"
+#################Articles###############
   articles:
     index:
       count:
@@ -56,3 +74,22 @@ ru:
   sessions:
     new:
       title: "Войти"
+###########Polls####################
+  polls:
+    index:
+      title: "Принять участие в опросе сейчас!"
+      participate: "Принять участие!"
+      sign_in: "Please sign in"
+      votes_count: "проголосовано:"
+    new:
+      title: "Создать опрос"
+    edit:
+      title: "Редактировать опрос"
+    show:
+      title: "Поделиться мыслью"
+    form:
+      options: "Варианты"
+    voting_form:
+      total_votes: "Всего голосов"
+      vote: "Проголосовать"
+      voted: "Вы уже проголосовали!"

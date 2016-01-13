@@ -12,17 +12,31 @@ en:
         password_confirmation: "Password confirmation"
       comment:
         body: "Comment"
+      poll:
+        topic: "Topics"
+      vote_option:
+        title: "Answer"
+#############forms##################
   forms:
     messages:
       success: "Operation succeeded!"
+      error: "Some error its happend..."
+      error_email: "Invalid email/password combination"
     buttons:
       edit: "Edit"
       submit: "Submit"
       show: "Details"
       sign_up: "Create account"
       login: "Login"
+      create: "Create"
+      delete: "Delete"
+    links:
+      add_option: "add option"
+      remove_option: "remove option"
+##############menu#################
   menu:
     new_article: "Add an article"
+    new_poll: "Add poll"
     languages:
       lang: "Language"
       ru: "Russian"
@@ -30,6 +44,10 @@ en:
     sign_up: "Sign up"
     login: "Login"
     sign_out: "Sign out"
+###############errors############
+  errors:
+    title: "The following errors were found:"
+#################Articles###############
   articles:
     index:
       count:
@@ -53,3 +71,22 @@ en:
   sessions:
     new:
       title: "Login"
+###########Polls####################
+  polls:
+    index:
+      title: "Participate in our polls right now!"
+      participate: "Participate!"
+      sign_in: "Please sign in"
+      votes_count: "voted:"
+    new:
+      title: "Create a new poll"
+    edit:
+      title: "Edit poll"
+    show:
+      title: "Share your opinion"
+    form:
+      options: "Options"
+    voting_form:
+      total_votes: "Total votes"
+      vote: "Vote"
+      voted: "You have already voted!"

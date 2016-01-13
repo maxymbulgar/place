@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "You create!"
+      flash[:success] = t('forms.messages.success')
       redirect_to "/"
     else
       render 'new'

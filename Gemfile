@@ -52,3 +52,6 @@ gem 'globalize'
 
 gem 'pg', '0.15.1'
 
+gem 'jquery-turbolinks'
+gem "cocoon"
+

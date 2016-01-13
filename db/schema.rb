@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107194830) do
+ActiveRecord::Schema.define(version: 20160112171137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20160107194830) do
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
 
+  create_table "polls", force: :cascade do |t|
+    t.text     "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -58,5 +64,28 @@ ActiveRecord::Schema.define(version: 20160107194830) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
+  create_table "vote_options", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vote_options", ["poll_id"], name: "index_vote_options_on_poll_id", using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "vote_option_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["vote_option_id", "user_id"], name: "index_votes_on_vote_option_id_and_user_id", unique: true, using: :btree
+  add_index "votes", ["vote_option_id"], name: "index_votes_on_vote_option_id", using: :btree
+
   add_foreign_key "comments", "articles"
+  add_foreign_key "vote_options", "polls"
+  add_foreign_key "votes", "users"
+  add_foreign_key "votes", "vote_options"
 end
