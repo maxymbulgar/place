@@ -13,4 +13,16 @@ class ApplicationController < ActionController::Base
     end
     I18n.locale = l
   end
+
+  def require_editor 
+    redirect_to '/' unless current_user.editor? 
+  end
+
+  def require_admin 
+    redirect_to '/' unless current_user.admin? 
+  end
+
+  def require_author 
+    redirect_to '/' unless current_user.author? 
+  end
 end

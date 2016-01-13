@@ -25,6 +25,18 @@ class User < ActiveRecord::Base
     votes.any? {|v| v.vote_option.poll == poll}
   end
 
+  def editor? 
+    self.role == 'editor' 
+  end
+
+  def admin? 
+    self.role == 'admin' 
+  end
+
+  def author? 
+    self.role == 'author' 
+  end
+
   private
 
     def create_remember_token

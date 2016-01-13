@@ -1,4 +1,15 @@
 class ArticlesController < ApplicationController
+
+  #if (:admin?)
+    #before_action :require_admin, :if => :signed_in?, only: [:new,:edit]  
+  #elsif (:author?)
+  #  skip_before_action :require_admin, only: [:new, :edit]
+  #end
+
+  #before_action :require_editor, only: [:show, :edit]
+  #before_action :require_admin, only: [:new, :show, :edit]
+  #before_action :redirect_to_root, :if => :not_signed_in?, only: [:new,:edit]
+
   def index
     @articles = Article.order('created_at DESC')
   end
@@ -10,7 +21,17 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    if signed_in?
+      if current_user.admin? or current_user.author?
+        @article = Article.new
+      else
+        flash[:warning] = t('forms.messages.error')
+        redirect_to '/'
+      end
+    else
+      flash[:warning] = t('forms.messages.error')
+      redirect_to '/'
+    end
   end
 
   def create
@@ -24,7 +45,24 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    if signed_in?
+      if current_user.admin?
+        @article = Article.find(params[:id])
+      elsif current_user.author?
+        @article = Article.find(params[:id])
+        if @article.author_email != current_user.email
+          @article = nil
+          flash[:warning] = t('forms.messages.error')
+          redirect_to '/'
+        end
+      else
+        flash[:warning] = t('forms.messages.error')
+        redirect_to '/'
+      end
+    else
+      flash[:warning] = t('forms.messages.error')
+      redirect_to '/'
+    end
   end
 
   def update
@@ -40,6 +78,9 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:body, :title)
+    params.require(:article).permit(:body, :title, :author_email)
+  end
+  def redirect_to_root
+    redirect_to root_path
   end
 end
