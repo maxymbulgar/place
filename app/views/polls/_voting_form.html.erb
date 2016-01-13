@@ -1,0 +1,12 @@
+<%= form_tag votes_path, method: :post, remote: true, id: 'voting_form' do %>
+  <%= hidden_field_tag 'poll[id]', @poll.id %>
+
+  <%= render partial: 'polls/vote_option', collection: @poll.vote_options, as: :option %>
+
+  <p><b><%= t('.total_votes') %>: <%= @poll.votes_summary %></b></p>
+  <% if current_user.voted_for?(@poll) %>
+    <p><%= t('.voted') %></p>
+  <% else %>
+    <%= submit_tag t('.vote'), class: 'btn btn-lg btn-primary' %>
+  <% end %>
+<% end %>

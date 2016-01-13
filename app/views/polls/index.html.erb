@@ -1,0 +1,22 @@
+<% content_for(:page_header) {t('.title')} %>
+
+<% @polls.each do |poll| %>
+  <div class="well">
+    <h2><%= poll.topic %> <small>(<%= t('.votes_count') %> <%= poll.votes_summary %>)</small></h2>
+
+    <p>
+      <% if current_user %>
+        <%= link_to t('.participate'), poll_path(poll), class: 'btn btn-primary btn-lg block' %>
+      <% else %>
+        <%= t('.sign_in') %> <a href= "/signin"><%= t('menu.login') %></a>.
+      <% end %>
+    </p>
+
+    <div class="btn-group">
+      <%= link_to t('forms.buttons.edit'), edit_poll_path(poll), class: 'btn btn-default' %>
+      <%= link_to t('forms.buttons.delete'), poll_path(poll),
+                  method: :delete,
+                  class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+<% end %>
