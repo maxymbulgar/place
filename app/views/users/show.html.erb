@@ -3,11 +3,13 @@
     <section>
       <h1>
         <%= gravatar_for @user %>
-        name: <%= @user.name %></br>
-        email: <%= @user.email %>
+        <%= t('.name') %> <%= @user.name %></br>
+        <%= t('.email') %> <%= @user.email %>
       </h1>
     </section>
   </aside>
 </div>
+</br>
+<h3><%= t('.about') %></h3>
 </br>
 <div class="row"><h4><%= @user.about %></h4></div>
