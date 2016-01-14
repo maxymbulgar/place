@@ -55,3 +55,4 @@ gem 'pg', '0.15.1'
 gem 'jquery-turbolinks'
 gem "cocoon"
 
+gem 'rails_12factor', group: :production
