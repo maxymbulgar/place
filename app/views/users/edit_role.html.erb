@@ -1,0 +1,16 @@
+<% content_for(:page_header) {@user.email} %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user,url: {action: "update_role"}) do |f| %>
+      <%= render 'shared/errors', object: @user  %>
+      <div class="form-group">
+      <%= f.label t('activerecord.attributes.user.role') %>
+        <% @formlist = ['admin', 'author','editor','user'] %>
+        <p><%= f.select(:role, @formlist.map { |value| [ value, value ] },{}, {:class => "form-control"}) %></p>
+      </div>
+
+      <%= f.submit t('forms.buttons.submit'), class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

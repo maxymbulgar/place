@@ -1,0 +1,15 @@
+<% content_for(:page_header) {@article.title} %>
+<p class="lead"><%= @article.body %></p>
+<%= form_for(@article,url: {action: "create"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :publish_at %>
+    <%= f.datetime_select :publish_at ,start_year: Time.now.year,start_month: Time.now.month,class: 'form-control'%>
+  </div>
+  <%= f.hidden_field :author_email, value: current_user.email %>
+  <%= f.hidden_field :title, value: @article.title %>
+  <%= f.hidden_field :body, value: @article.body %>
+
+
+  <%= f.submit t('forms.buttons.submit'), class: 'btn btn-primary btn-lg' %>
+<% end %>

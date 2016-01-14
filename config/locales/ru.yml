@@ -5,11 +5,13 @@ ru:
       article:
         title: "Название"
         body: "Текст"
+        publish_at: "Опубликовать"
       user:
         name: "Имя"
         email: "Почта"
         password: "Ваш пароль"
         password_confirmation: "Подтверждение пароля"
+        role: "Роль"
       comment:
         body: "Коментарий"
       poll:
@@ -35,6 +37,8 @@ ru:
       remove_option: "убрать вариант"
 ##############menu#################
   menu:
+    articles: "Статьи"
+    polls: "Опросы"
     new_article: "Добавить статью"
     new_poll: "Добавить голосование"
     languages:
@@ -44,6 +48,9 @@ ru:
     sign_up: "Зарегистрироваться"
     login: "Войти"
     sign_out: "Выйти"
+    edit_profile: "Изменить профиль"
+    edit_role: "Изменить роль"
+    users: "Пользователи"
 ###############errors############
   errors:
     title: "Вы припустились ошибок:"
@@ -67,10 +74,14 @@ ru:
       post_comment: "Отправить коментарий"
 ############Users##############
   users:
+    index: "Юзеры"
     new:
       title: "Регистрация"
     show:
       title: "Профиль"
+    edit:
+      title: "Обновить профиль"
+      change: "Поменять граватар"
   sessions:
     new:
       title: "Войти"

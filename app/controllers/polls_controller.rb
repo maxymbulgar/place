@@ -1,4 +1,6 @@
 class PollsController < ApplicationController
+  before_action :redirect_to_root, :if => :not_signed_in?, only: [:edit, :destroy, :new, :edit]
+  before_action :require_admins, only: [:crete, :new, :edit, :update, :destroy]
   def index
     @polls = Poll.all
   end

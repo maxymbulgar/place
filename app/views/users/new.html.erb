@@ -21,6 +21,10 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
   </div>
+  <div class="form-group">
+    <%= f.label :about %>
+    <%= f.text_area :about, class: 'form-control', required: true %>
+  </div>
 
   <%= f.submit t('forms.buttons.sign_up'), class: "btn btn-large btn-primary" %>
 <% end %>

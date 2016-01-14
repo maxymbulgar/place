@@ -7,4 +7,8 @@
 <br>
 <h3><%= t('.post_comment') %></h3>
 <hr>
-<p><%= render partial: 'comments/form' %></p>
+<% if signed_in? %>
+  <p><%= render partial: 'comments/form' %></p>
+<% else %>
+  <p>Please sign in</p>
+<% end %>

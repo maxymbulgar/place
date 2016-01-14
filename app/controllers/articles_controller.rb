@@ -11,13 +11,18 @@ class ArticlesController < ApplicationController
   #before_action :redirect_to_root, :if => :not_signed_in?, only: [:new,:edit]
 
   def index
-    @articles = Article.order('created_at DESC')
+    @articles = Article.where("publish_at <= :date_now",
+  {date_now: Time.now}).order('created_at DESC')
   end
 
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
     @comment.article_id = @article.id
+  end
+
+  def preview
+    @article = Article.new(article_params)
   end
 
   def new
@@ -67,7 +72,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    if @article.update_attributes(article_params)
+    if @article.updates_attributes(article_params)
       flash[:success] = t('forms.messages.success')
       redirect_to articles_path
     else
@@ -78,7 +83,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:body, :title, :author_email)
+    params.require(:article).permit(:body, :title, :author_email, :publish_at)
   end
   def redirect_to_root
     redirect_to root_path

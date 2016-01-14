@@ -1,0 +1,8 @@
+<div class="row">
+	<p><%= gravatar_for user %></p>
+	<p><%= link_to user.name, user %></p>
+	<% if signed_in? and current_user.admin? %>
+		<%= link_to t('menu.edit_role'), edit_role_path(user) %>
+	<% end %>
+</div>
+</br>

@@ -1,0 +1,35 @@
+<% content_for(:page_header) {t('.title')} %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/errors', object: @user  %>
+      <div class="form-group">
+        <%= f.label t('activerecord.attributes.user.name') %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label t('activerecord.attributes.user.email') %>
+        <%= f.text_field :email, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label t('activerecord.attributes.user.password') %>
+        <%= f.password_field :password, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label t('activerecord.attributes.user.password_confirmation') %>
+        <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
+      </div>
+        <div class="form-group">
+    <%= f.label :about %>
+    <%= f.text_area :about, class: 'form-control', required: true %>
+  </div>
+      
+
+      <%= f.submit t('forms.buttons.submit'), class: "btn btn-large btn-primary" %>
+    <% end %>
+    </br>
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails"><%= t('.change') %></a>
+  </div>
+</div>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:index, :new, :create, :edit, :update, :show]
   root to: 'articles#index'
+  match '/articles/preview', to: 'articles#preview', as: :preview, via: 'post'
+  match '/articles/preview', to: 'articles#preview', as: :create_article, via: 'post'
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
   resources :articles do
     resources :comments
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
 
   
   resources :users
+  match '/edit_role/:id', to: 'users#edit_role',as: :edit_role,  via: 'get'
+  match '/edit_role/:id', to: 'users#update_role', via: 'patch'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup', to: 'users#new', via: 'get'

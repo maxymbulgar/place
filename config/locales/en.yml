@@ -5,11 +5,13 @@ en:
       article:
         title: "Title"
         body: "Body"
+        publish_at: "Publish at"
       user:
         name: "Name"
         email: "Email"
         password: "Your password"
         password_confirmation: "Password confirmation"
+        role: "Role"
       comment:
         body: "Comment"
       poll:
@@ -35,6 +37,8 @@ en:
       remove_option: "remove option"
 ##############menu#################
   menu:
+    articles: "Articles"
+    polls: "Polls"
     new_article: "Add an article"
     new_poll: "Add poll"
     languages:
@@ -44,6 +48,9 @@ en:
     sign_up: "Sign up"
     login: "Login"
     sign_out: "Sign out"
+    edit_profile: "Edit profile"
+    edit_role: "Change role"
+    users: "Users"
 ###############errors############
   errors:
     title: "The following errors were found:"
@@ -64,10 +71,14 @@ en:
       post_comment: "Post a Comment"
 ############Users##############
   users:
+    index: "Users"
     new:
       title: "Sign up"
     show:
       title: "Profile"
+    edit:
+      title: "Update your profile"
+      change: "Change gravatar"
   sessions:
     new:
       title: "Login"
