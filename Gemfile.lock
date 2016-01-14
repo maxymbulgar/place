@@ -163,6 +163,7 @@ GEM
 
 PLATFORMS
   ruby
+  unknown
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
